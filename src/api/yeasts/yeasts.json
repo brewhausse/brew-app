@@ -1,0 +1,27 @@
+[
+    {
+        "Id": 1,
+        "Attenuation": 0.8,
+        "Name": "California Ale Yeast WLP001"
+    },
+    {
+        "Id": 2,
+        "Attenuation": 0.7,
+        "Name": "English Ale Yeast WLP002"
+    },
+    {
+        "Id": 3,
+        "Attenuation": 0.74,
+        "Name": "Irish Ale Yeast WLP004"
+    },
+    {
+        "Id": 4,
+        "Attenuation": 0.74,
+        "Name": "British Ale Yeast WLP005"
+    },
+    {
+        "Id": 5,
+        "Attenuation": 0.8,
+        "Name": "Bedford British Yeast WLP006"
+    }
+]

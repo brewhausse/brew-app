@@ -1,0 +1,19 @@
+<div class="panel-heading"><h3>Yeasts<input type="button" class="btn btn-default pull-right" value="Add Yeast" data-toggle="modal" data-target="#yeastsModal" /></h3></div>
+<div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>attenuation</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: yeasts">
+            <tr>
+                <td class="col-xs-9" data-bind="text: $data.name"></td>
+                <td class="col-xs-2" data-bind="text: $data.attenuation"></td>
+                <td class="col-xs-1"><input type="button" class="btn btn-default pull-right" value="X" data-bind="click: $parent.removeYeast" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

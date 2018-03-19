@@ -1,0 +1,54 @@
+<div class="panel-heading">
+    <h3>Fermentables
+        <!-- ko if: isEditable == true -->
+        <input type="button" class="btn btn-default pull-right" value="Add Fermentable" data-toggle="modal" data-target="#fermentablesModal"/>
+        <!-- /ko -->
+    </h3>
+</div>
+<div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>lbs</th>
+                <th>fermentable</th>
+                <th>ppg</th>
+                <th>L</th>
+                <th>usage</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: fermentables">
+            <!-- ko if: $parent.isEditable == true -->
+            <tr>
+                <td class="col-xs-2"><input type="text" class="form-control" data-bind="value: $data.lbs" /></td>
+                <td class="col-xs-5" data-bind="text: $data.fermentableTitle"></td>
+                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.grainPotential" /></td>
+                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.lovibond" /></td>
+                <td class="col-xs-2">
+                    <select class="form-control">
+                        <option value="Mash">Mash</option>
+                        <option value="Extract">Extract</option>
+                    </select>
+                </td>
+                <td class="col-xs-1"><input type="button" class="btn btn-default pull-right" value="X" data-bind="click: $parent.removeFermentable" /></td>
+            </tr>
+            <!-- /ko -->
+            <!-- ko if: $parent.isEditable == false -->
+            <tr>
+                <td class="col-xs-2" data-bind="text: $data.lbs"></td>
+                <td class="col-xs-5" data-bind="text: $data.fermentableTitle"></td>
+                <td class="col-xs-1" data-bind="text: $data.grainPotential"></td>
+                <td class="col-xs-1" data-bind="text: $data.lovibond"></td>
+                <td class="col-xs-2" data-bind="text: $data.usage"></td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+</div>
+<div class="panel-footer">
+    <div class="row">
+        <div class="col-xs-12">
+            <span data-bind="numericText: totalLbsGrain"></span> lbs of grain
+        </div>
+    </div>
+</div>

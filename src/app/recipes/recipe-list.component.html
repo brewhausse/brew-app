@@ -1,0 +1,43 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">Filter by:</div>
+            <div class="col-md-4">
+                <input type="text" [(ngModel)]='listFilter' />
+            </div>
+        </div>
+        <table class="table" *ngIf='recipes && recipes.length'>
+            <thead>
+                <tr>
+                    <th>Recipe Id</th>
+                    <th>Recipe Title</th>
+                    <th>Boil Size (Gal)</th>
+                    <th>Boil Time (Min)</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let recipe of filteredRecipes'>
+                    <td class="col-xs-2">{{recipe.Id}}</td>
+                    <td class="col-xs-2">{{recipe.Title}}</td>
+                    <td class="col-xs-2">{{recipe.BoilSizeGal}}</td>
+                    <td class="col-xs-2">{{recipe.BoilTimeMin}}</td>
+                    <td class="col-xs-1">
+                        <input [routerLink]="['/recipes', recipe.Id]" type="button" class="btn btn-default" value="Edit" title="Edit to make changes to this recipe." />
+                    </td>
+                    <td class="col-xs-1">
+                        <input type="button" class="btn btn-default" value="Clone" title="Clone to create a new recipe from this one." />
+                    </td>
+                    <td class="col-xs-2">
+                        <input type="button" class="btn btn-default" value="Start Brewing" title="Start a new brew using this recipe." />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class='panel panel-primary' *ngIf='recipe'>
+    <div class='panel-heading'>
+        {{pageTitle + ': ' + recipe.Title}}
+    </div>
+
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='col-md-3'>Title:</div>
+                    <div class='col-md-6'>{{recipe.Title}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Batch Size:</div>
+                    <div class='col-md-6'>{{recipe.BatchSize}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Boil Size (Gal):</div>
+                    <div class='col-md-6'>{{recipe.BoilSizeGal}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Boil Time (Min):</div>
+                    <div class='col-md-6'>{{recipe.BoilTimeMin}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>MashEfficiency:</div>
+                    <div class='col-md-6'>{{recipe.MashEfficiency}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='panel-footer'>
+        <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+    </div>
+</div>
+
+<div class="row">
+        <div class="col-sm-8">
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <app-recipe-fermentables-list></app-recipe-fermentables-list>
+            </div>
+            <div class="panel panel-default">
+              <app-recipe-hops-list></app-recipe-hops-list>
+            </div>
+            <div class="panel panel-default">
+              <app-recipe-yeast-list></app-recipe-yeast-list>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <app-recipe-info [recipe]="recipe"></app-recipe-info>
+            </div>
+            <div class="panel panel-default">
+              <app-recipe-stats [recipe]="recipe"></app-recipe-stats>
+            </div>
+          </div>
+        </div>
+      </div>

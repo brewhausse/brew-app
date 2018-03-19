@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">Filter by:</div>
+            <div class="col-md-4">
+                <input type="text" [(ngModel)]='listFilter' />
+            </div>
+        </div>
+        <table class="table" *ngIf='batches && batches.length'>
+            <thead>
+                <tr>
+                    <th>Batch Id</th>
+                    <th>Batch Title</th>
+                    <th>Boil Size (Gal)</th>
+                    <th>Boil Time (Min)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let batch of filteredBatches'>
+                    <td class="col-xs-2">{{batch.Id}}</td>
+                    <td class="col-xs-2">{{batch.Title}}</td>
+                    <td class="col-xs-2">{{batch.BoilSizeGal}}</td>
+                    <td class="col-xs-2">{{batch.BoilTimeMin}}</td>
+                    <td class="col-xs-1">
+                        <input [routerLink]="['/batches', batch.Id]" type="button" class="btn btn-default" value="Edit" title="Edit to make changes to this batch." />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

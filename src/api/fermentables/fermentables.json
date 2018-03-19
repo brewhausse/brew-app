@@ -1,0 +1,26 @@
+[
+    {
+        "Id": 1,
+        "Title": "Pale 2-Row - US",
+        "GrainPotential": 29,
+        "Lovibond": 2
+    },
+    {
+        "Id": 2,
+        "Title": "2-Row - US",
+        "GrainPotential": 29,
+        "Lovibond": 2
+    },
+    {
+        "Id": 3,
+        "Title": "Brown Malt - UK",
+        "GrainPotential": 29,
+        "Lovibond": 2
+    },
+    {
+        "Id": 4,
+        "Title": "Aromatic Malt - US",
+        "GrainPotential": 29,
+        "Lovibond": 2
+    }
+]

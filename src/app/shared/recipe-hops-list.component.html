@@ -1,0 +1,61 @@
+<div class="panel-heading">
+    <h3>
+        Hops
+        <!-- ko if: $parent.isEditable == true -->
+        <input type="button" class="btn btn-default pull-right" value="Add Hop" data-toggle="modal" data-target="#hopsModal" />
+        <!-- /ko -->
+    </h3>
+</div>
+<div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>oz</th>
+                <th>variety</th>
+                <th>type</th>
+                <th>usage</th>
+                <th>time</th>
+                <th>AA</th>
+                <th>IBU</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: hops">
+
+            <!-- ko if: $parent.isEditable == true -->
+            <tr>
+                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.oz" /></td>
+                <td class="col-xs-3" data-bind="text: $data.hopTitle"></td>
+                <td class="col-xs-2">
+                    <select class="form-control">
+                        <option value="Pellet">Pellet</option>
+                        <option value="Cones">Cones</option>
+                    </select>
+                </td>
+                <td class="col-xs-2">
+                    <select class="form-control">
+                        <option value="Boil">Bittering</option>
+                        <option value="Bittering">Smell</option>
+                        <option value="Mash">Flavor</option>
+                    </select>
+                </td>
+                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.time" /></td>
+                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.alphaAcid" /></td>
+                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.IBU" /></td>
+                <td class="col-xs-1"><input type="button" class="btn btn-default pull-right" value="X" data-bind="click: $parent.removeHop" /></td>
+            </tr>
+            <!-- /ko -->
+            <!-- ko if: $parent.isEditable == false -->
+            <tr>
+                <td class="col-xs-1" data-bind="value: $data.oz"></td>
+                <td class="col-xs-3" data-bind="text: $data.hopTitle"></td>
+                <td class="col-xs-2" data-bind="text: $data.type"></td>
+                <td class="col-xs-2" data-bind="text: $data.usage"></td>
+                <td class="col-xs-1" data-bind="text: $data.time"></td>
+                <td class="col-xs-1" data-bind="text: $data.alphAcid"></td>
+                <td class="col-xs-1" data-bind="text: $data.IBU"></td>
+                <td></td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+</div>
