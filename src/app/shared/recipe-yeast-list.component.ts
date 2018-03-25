@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IYeast } from '../recipes/yeast';
 
 @Component({
   selector: 'app-recipe-yeast-list',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeYeastListComponent implements OnInit {
 
+  @Input() yeasts: IYeast[];
+  
   constructor() { }
 
   ngOnInit() {

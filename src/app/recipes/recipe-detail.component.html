@@ -47,7 +47,7 @@
               <app-recipe-hops-list></app-recipe-hops-list>
             </div>
             <div class="panel panel-default">
-              <app-recipe-yeast-list></app-recipe-yeast-list>
+              <app-recipe-yeast-list [yeasts]="recipe.Yeasts"></app-recipe-yeast-list>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
               <app-recipe-info [recipe]="recipe"></app-recipe-info>
             </div>
             <div class="panel panel-default">
-              <app-recipe-stats [recipe]="recipe"></app-recipe-stats>
+              <app-recipe-stats></app-recipe-stats>
             </div>
           </div>
         </div>

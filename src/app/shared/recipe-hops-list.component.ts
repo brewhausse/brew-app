@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IHop } from '../recipes/hop';
+
 
 @Component({
   selector: 'app-recipe-hops-list',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-hops-list.component.css']
 })
 export class RecipeHopsListComponent implements OnInit {
+
+  @Input() hops: IHop[];
 
   constructor() { }
 
