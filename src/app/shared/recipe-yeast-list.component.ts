@@ -9,7 +9,7 @@ import { IYeast } from '../recipes/yeast';
 export class RecipeYeastListComponent implements OnInit {
 
   @Input() yeasts: IYeast[];
-  
+  @Input() isEditable: boolean = true;
   constructor() { }
 
   ngOnInit() {

@@ -9,10 +9,15 @@
             </tr>
         </thead>
         <tbody *ngFor='let yeast of yeasts'>
-            <tr>
+            <tr *ngIf='isEditable'>
                 <td class="col-xs-9">{{yeast.Name}}</td>
                 <td class="col-xs-2">{{yeast.Attenuation}}</td>
-                <td class="col-xs-1"><input type="button" class="btn btn-default pull-right" value="X" data-bind="click: $parent.removeYeast" /></td>
+                <td class="col-xs-1"><input type="button" class="btn btn-default pull-right" value="X" /></td>
+            </tr>
+            <tr *ngIf='!isEditable'>
+                <td class="col-xs-9">{{yeast.Name}}</td>
+                <td class="col-xs-2"><input type="text" class="form-control" [value]="yeast.Attenuation" /></td>
+                <td class="col-xs-1"><input type="button" class="btn btn-default pull-right" value="X" /></td>
             </tr>
         </tbody>
     </table>

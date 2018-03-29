@@ -41,10 +41,10 @@
         <div class="col-sm-8">
           <div class="panel-group">
             <div class="panel panel-default">
-              <app-recipe-fermentables-list></app-recipe-fermentables-list>
+              <app-recipe-fermentables-list [fermentables]="recipe.Fermentables"></app-recipe-fermentables-list>
             </div>
             <div class="panel panel-default">
-              <app-recipe-hops-list></app-recipe-hops-list>
+              <app-recipe-hops-list [hops]="recipe.Hops"></app-recipe-hops-list>
             </div>
             <div class="panel panel-default">
               <app-recipe-yeast-list [yeasts]="recipe.Yeasts"></app-recipe-yeast-list>
@@ -57,7 +57,7 @@
               <app-recipe-info [recipe]="recipe"></app-recipe-info>
             </div>
             <div class="panel panel-default">
-              <app-recipe-stats></app-recipe-stats>
+              <app-recipe-stats [recipe]="recipe"></app-recipe-stats>
             </div>
           </div>
         </div>

@@ -9,8 +9,10 @@ import { IFermentable } from '../recipes/fermentable';
 export class RecipeFermentablesListComponent implements OnInit {
 
   @Input() fermentables: IFermentable[];
+  @Input() isEditable: boolean = true;
+  constructor() {
 
-  constructor() { }
+   }
 
   ngOnInit() {
   }
