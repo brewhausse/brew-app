@@ -1,8 +1,6 @@
 <div class="panel-heading">
     <h3>Fermentables
-        <!-- ko if: isEditable == true -->
-        <input type="button" class="btn btn-default pull-right" value="Add Fermentable" data-toggle="modal" data-target="#fermentablesModal"/>
-        <!-- /ko -->
+        <input *ngIf="isEditable" type="button" class="btn btn-default pull-right" value="Add Fermentable" data-toggle="modal" data-target="#fermentablesModal"/>
     </h3>
 </div>
 <div class="panel-body">
@@ -17,13 +15,12 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody data-bind="foreach: fermentables">
-            <!-- ko if: $parent.isEditable == true -->
-            <tr>
-                <td class="col-xs-2"><input type="text" class="form-control" data-bind="value: $data.lbs" /></td>
-                <td class="col-xs-5" data-bind="text: $data.fermentableTitle"></td>
-                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.grainPotential" /></td>
-                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.lovibond" /></td>
+        <tbody *ngFor="let fermentable of fermentables">
+            <tr *ngIf="isEditable">
+                <td class="col-xs-2"><input type="text" class="form-control" [value]="fermentable.Lbs" /></td>
+                <td class="col-xs-5">{{fermentable.Title}}</td>
+                <td class="col-xs-1"><input type="text" class="form-control" [value]="fermentable.GrainPotential" /></td>
+                <td class="col-xs-1"><input type="text" class="form-control" [value]="fermentable.Lovibond" /></td>
                 <td class="col-xs-2">
                     <select class="form-control">
                         <option value="Mash">Mash</option>
@@ -32,16 +29,13 @@
                 </td>
                 <td class="col-xs-1"><input type="button" class="btn btn-default pull-right" value="X" data-bind="click: $parent.removeFermentable" /></td>
             </tr>
-            <!-- /ko -->
-            <!-- ko if: $parent.isEditable == false -->
-            <tr>
-                <td class="col-xs-2" data-bind="text: $data.lbs"></td>
-                <td class="col-xs-5" data-bind="text: $data.fermentableTitle"></td>
-                <td class="col-xs-1" data-bind="text: $data.grainPotential"></td>
-                <td class="col-xs-1" data-bind="text: $data.lovibond"></td>
-                <td class="col-xs-2" data-bind="text: $data.usage"></td>
+            <tr  *ngIf="!isEditable">
+                <td class="col-xs-2" >{{fermentable.Lbs}}</td>
+                <td class="col-xs-5" >{{fermentable.Title}}</td>
+                <td class="col-xs-1" >{{fermentable.GrainPotential}}</td>
+                <td class="col-xs-1" >{{fermentable.Lbs}}</td>
+                <td class="col-xs-2" >{{fermentable.Usage}}</td>
             </tr>
-            <!-- /ko -->
         </tbody>
     </table>
 </div>

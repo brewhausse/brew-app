@@ -11,13 +11,14 @@ import { RecipeService } from './recipe.service';
 export class RecipeDetailComponent implements OnInit {
 
   pageTitle: string = 'Recipe Detail';
-  @Input() recipe: IRecipe;
+  recipe: IRecipe;
 
   constructor(private _route: ActivatedRoute,
               private _router: Router,
               private _recipeSvc: RecipeService) { }
 
   ngOnInit() {
+    //NOTE: '+' is shorthand for casting to number i think
     let id = +this._route.snapshot.paramMap.get('id');
 
     this.pageTitle += `: ${id}`;

@@ -2,7 +2,7 @@
     <h3>
         Hops
         <!-- ko if: $parent.isEditable == true -->
-        <input type="button" class="btn btn-default pull-right" value="Add Hop" data-toggle="modal" data-target="#hopsModal" />
+        <input *ngIf="isEditable" type="button" class="btn btn-default pull-right" value="Add Hop" data-toggle="modal" data-target="#hopsModal" />
         <!-- /ko -->
     </h3>
 </div>
@@ -19,12 +19,11 @@
                 <th>IBU</th>
             </tr>
         </thead>
-        <tbody data-bind="foreach: hops">
+        <tbody *ngFor="let hop of hops">
 
-            <!-- ko if: $parent.isEditable == true -->
-            <tr>
-                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.oz" /></td>
-                <td class="col-xs-3" data-bind="text: $data.hopTitle"></td>
+            <tr input *ngIf="isEditable">
+                <td class="col-xs-1"><input type="text" class="form-control" [value]="hop.Oz" /></td>
+                <td class="col-xs-3">{{hop.Title}}</td>
                 <td class="col-xs-2">
                     <select class="form-control">
                         <option value="Pellet">Pellet</option>
@@ -38,24 +37,22 @@
                         <option value="Mash">Flavor</option>
                     </select>
                 </td>
-                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.time" /></td>
-                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.alphaAcid" /></td>
-                <td class="col-xs-1"><input type="text" class="form-control" data-bind="value: $data.IBU" /></td>
-                <td class="col-xs-1"><input type="button" class="btn btn-default pull-right" value="X" data-bind="click: $parent.removeHop" /></td>
+                <td class="col-xs-1"><input type="text" class="form-control" [value]="hop.TimeMin" /></td>
+                <td class="col-xs-1"><input type="text" class="form-control" [value]="hop.AlphaAcid" /></td>
+                <td class="col-xs-1"><input type="text" class="form-control" [value]="hop.IBU" /></td>
+                <td class="col-xs-1"><input type="button" class="btn btn-default pull-right" value="X" (click)="removeHop(hop.Id)" /></td>
             </tr>
-            <!-- /ko -->
-            <!-- ko if: $parent.isEditable == false -->
-            <tr>
-                <td class="col-xs-1" data-bind="value: $data.oz"></td>
-                <td class="col-xs-3" data-bind="text: $data.hopTitle"></td>
-                <td class="col-xs-2" data-bind="text: $data.type"></td>
-                <td class="col-xs-2" data-bind="text: $data.usage"></td>
-                <td class="col-xs-1" data-bind="text: $data.time"></td>
-                <td class="col-xs-1" data-bind="text: $data.alphAcid"></td>
-                <td class="col-xs-1" data-bind="text: $data.IBU"></td>
+            <tr input *ngIf="!isEditable">
+                <td class="col-xs-1">{{hop.Oz}}</td>
+                <td class="col-xs-3">{{hop.Title}}</td>
+                <td class="col-xs-2">{{hop.Type}}</td>
+                <td class="col-xs-2">{{hop.Usage}}</td>
+                <td class="col-xs-1">{{hop.TimeMin}}</td>
+                <td class="col-xs-1">{{hop.AlphaAcid}}</td>
+                <td class="col-xs-1">{{hop.IBU}}</td>
                 <td></td>
             </tr>
-            <!-- /ko -->
+
         </tbody>
     </table>
 </div>

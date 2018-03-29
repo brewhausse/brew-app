@@ -10,7 +10,7 @@ import { IHop } from '../recipes/hop';
 export class RecipeHopsListComponent implements OnInit {
 
   @Input() hops: IHop[];
-
+  @Input() isEditable: boolean = true;
   constructor() { }
 
   ngOnInit() {
